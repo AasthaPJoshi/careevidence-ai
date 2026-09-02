@@ -1,0 +1,26 @@
+# Environment / secrets — never commit
+.env
+
+# R session / history artifacts
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# renv — the lockfile (renv.lock) and renv/activate.R ARE committed;
+# renv manages its own ignore rules for the actual installed library
+# inside renv/, this just covers the top-level cache path if present.
+renv/library/
+renv/staging/
+renv/python/
+renv/local/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Synthea artifacts — large, regenerable from the pinned seed, never committed
+data-raw/synthea-with-dependencies-*.jar
+data-raw/synthea_output/

@@ -1,0 +1,12 @@
+{
+  "r.rpath.mac": "/usr/local/bin/R",
+  "r.bracketedPaste": true,
+  "r.plot.useHttpgd": true,
+  "r.lsp.enabled": true,
+  "r.lsp.diagnostics": true,
+  "r.rterm.option": ["--no-save", "--no-restore"],
+  "files.associations": {
+    "*.qmd": "quarto"
+  },
+  "editor.rulers": [80]
+}
