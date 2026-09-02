@@ -57,11 +57,17 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 echo "==> Running Synthea — this can take a while for larger populations"
+# NOTE: -c (local config file) MUST come before -s/-cs/-p on the command
+# line. Confirmed empirically: when -c is placed after -p, Synthea's
+# config-file load resets the population back to its default (1),
+# silently discarding -p. Putting -c first, so later flags override
+# the file's defaults, fixes this. This is not documented anywhere in
+# Synthea's -h output or wiki -- found by reproducing the exact bug.
 "$JAVA_BIN" -jar "$SYNTHEA_JAR_PATH" \
+  -c config/synthea.properties \
   -s "$SEED" \
   -cs "$SEED" \
   -p "$POPULATION" \
-  -c config/synthea.properties \
   --exporter.baseDirectory="${OUTPUT_DIR}/" \
   "$STATE"
 
